@@ -6,7 +6,7 @@
       </div>
       <div class="card__face card__face--back">
         <img :src="'/animals/' + props.img" alt class="w-2/3" />
-        <h2 class="text-3xl">{{ props.text }}</h2>
+        <h2 class="text-3xl pacifico">{{ props.text }}</h2>
       </div>
     </div>
   </div>
