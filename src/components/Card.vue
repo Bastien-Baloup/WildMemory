@@ -26,9 +26,10 @@ const props = defineProps({
 .card {
   /* @apply h-full aspect-[5/8]; */
   perspective: 60rem;
+  pointer-events: all;
 }
 .card__inner {
-  @apply h-full w-full transition-all duration-700 cursor-pointer relative;
+  @apply h-full w-full transition-all duration-700 cursor-pointer relative select-none;
   transform-style: preserve-3d;
 }
 .card__inner[flipped="true"] {
