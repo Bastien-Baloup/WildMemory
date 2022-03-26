@@ -1,12 +1,12 @@
 <template>
   <div class="card">
-    <div class="card__inner" :flipped="props.flipped">
+    <div class="card__inner" :inactive="props.inactive" :flipped="props.flipped">
       <div class="card__face card__face--front">
-        <img src="/forest.svg" alt class="w-1/2 svg-orange-50" />
+        <img src="/forest.svg" alt class="w-1/2 svg-orange-50" draggable="false" />
       </div>
       <div class="card__face card__face--back">
-        <img :src="'/animals/' + props.img" alt class="w-2/3" />
-        <h2 class="text-3xl pacifico">{{ props.text }}</h2>
+        <img :src="'/animals/' + props.img" alt class="w-2/3 min-h-[50%] mt-2" draggable="false" />
+        <h2 class="pacifico block w-[90%] text-center">{{ props.text }}</h2>
       </div>
     </div>
   </div>
@@ -14,15 +14,17 @@
 
 <script setup>
 const props = defineProps({
+  inactive: { type: Boolean, default: false },
   flipped: { type: Boolean, default: false },
   img: { type: String, default: "deer.svg" },
   text: { type: String, default: 'deer' }
 })
+
 </script>
 
 <style lang="postcss">
 .card {
-  @apply h-full aspect-[5/8];
+  /* @apply h-full aspect-[5/8]; */
   perspective: 60rem;
 }
 .card__inner {
@@ -32,9 +34,12 @@ const props = defineProps({
 .card__inner[flipped="true"] {
   transform: rotateY(180deg);
 }
+.card__inner[inactive="true"] .card__face {
+  filter: brightness(25%);
+}
 
 .card__face {
-  @apply absolute w-full h-full overflow-hidden rounded-2xl shadow-lg;
+  @apply absolute w-full h-full overflow-hidden rounded-sm md:rounded-2xl shadow-lg transition-all duration-300;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
