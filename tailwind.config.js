@@ -11,7 +11,7 @@ module.exports = {
         'forest': '#364e3a'
       },
       gridTemplateRows: {
-        '10': 'repeat(10, minmax(0, 1fr))',
+        '8': 'repeat(8, minmax(0, 1fr))',
       }
     }
   }

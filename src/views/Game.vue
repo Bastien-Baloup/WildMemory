@@ -7,8 +7,8 @@
       ref="grid"
       class="w-[80vh] max-w-[90vw] aspect-square grid gap-2"
       :class="'grid-' + gridSize"
-        :style="'font-size: ' + cardFontSize + 'px;'"
-      >
+      :style="'font-size: ' + cardFontSize + 'px;'"
+    >
       <div v-for="(card, i) in cardList" :key="i" class="h-full w-full">
         <Card
           :inactive="card.inactive"
@@ -87,7 +87,7 @@ const gridSize = computed(() => {
     case 'medium':
       return 6
     case 'hard':
-      return 10
+      return 8
     default:
       return 4
   }
@@ -137,7 +137,7 @@ const cardsData = {
   40: { img: 'siberian_weasel.svg', text: { english: 'Siberian\xa0Weasel', french: 'Vison', spanish: 'Comadreja siberiana' } },
   41: { img: 'skunk.svg', text: { english: 'Skunk', french: 'Moufette', spanish: 'Zorrillo' } },
   42: { img: 'sloth.svg', text: { english: 'Sloth', french: 'Paresseux', spanish: 'Folivora' } },
-  43: { img: 'snow_leopard.svg', text: { english: 'Snow\xa0Leopard', french: 'Panthèredes\xa0neiges', spanish: 'Leopardo de\xa0las\xa0nieves' } },
+  43: { img: 'snow_leopard.svg', text: { english: 'Snow\xa0Leopard', french: 'Panthère des\xa0neiges', spanish: 'Leopardo de\xa0las\xa0nieves' } },
   44: { img: 'squirrel.svg', text: { english: 'Squirrel', french: 'Écureuil', spanish: 'Ardilla' } },
   45: { img: 'wild_boar.svg', text: { english: 'Wild\xa0Boar', french: 'Sanglier', spanish: 'Sus scrofa' } },
   46: { img: 'wildcat.svg', text: { english: 'Wildcat', french: 'Chat sauvage', spanish: 'Gato montés' } },
@@ -204,8 +204,8 @@ const handleCardClick = async (cardIndex) => {
       } else {
         cardList.value[selectedCards[0]].flipped = false
         cardList.value[selectedCards[1]].flipped = false
-        selectedCards = []      }
-
+        selectedCards = []
+      }
     }
     canClick = true
   }
@@ -222,7 +222,7 @@ onMounted(() => setupCardList())
 .grid-6 {
   @apply grid-cols-6 grid-rows-6;
 }
-.grid-10 {
-  @apply grid-cols-10 grid-rows-10;
+.grid-8 {
+  @apply grid-cols-8 grid-rows-8;
 }
 </style>
