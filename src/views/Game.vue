@@ -7,13 +7,9 @@
       ref="grid"
       class="w-[80vh] max-w-[90vw] aspect-square grid gap-2"
       :class="'grid-' + gridSize"
-    >
-      <div
-        v-for="(card, i) in cardList"
-        :key="i"
-        class="h-full w-full"
         :style="'font-size: ' + cardFontSize + 'px;'"
       >
+      <div v-for="(card, i) in cardList" :key="i" class="h-full w-full">
         <Card
           :inactive="card.inactive"
           :flipped="card.flipped"
@@ -22,6 +18,24 @@
           class="h-full w-full"
           @click.prevent="() => handleCardClick(i)"
         />
+      </div>
+    </div>
+  </div>
+  <div
+    v-if="isEnded"
+    class="absolute top-0 left-0 h-full w-full bg-[#0005] flex items-center justify-center"
+  >
+    <div
+      class="h-2/3 w-2/3 z-50 bg-orange-50 outline outline-2 outline-forest rounded-2xl flex flex-col items-center justify-evenly text-forest"
+    >
+      <h2 class="text-6xl ultra">Congratulations</h2>
+      <p class="text-4xl ultra">You did it in&nbsp;: {{ minutes }}:{{ seconds }}</p>
+      <div>
+        <router-link
+          :to="{ name: 'Home' }"
+          class="outline outline-2 outline-forest text-forest ultra text-2xl m-2 py-4 px-8 rounded-xl"
+        >Back to Homepage</router-link>
+        <a href class="bg-forest text-orange-50 ultra text-2xl m-2 py-4 px-8 rounded-xl">Retry</a>
       </div>
     </div>
   </div>
@@ -39,6 +53,7 @@ const props = defineProps({
 const cardList = ref([])
 const time = ref(0)
 const grid = ref(null)
+const isEnded = ref(false)
 let canClick = true
 let selectedCards = []
 let foundCount = 0
@@ -171,26 +186,26 @@ const handleCardClick = async (cardIndex) => {
     selectedCards.push(cardIndex)
     cardList.value[cardIndex].flipped = true
     if (selectedCards.length === 2) {
-      await sleep(700)
+      await sleep(700) // to let time to the flipped animation to end
       const card1 = cardList.value[selectedCards[0]]
       const card2 = cardList.value[selectedCards[1]]
       if (card1.img === card2.img) {
         foundCount += 2
         cardList.value[selectedCards[0]].inactive = true
         cardList.value[selectedCards[1]].inactive = true
-        await sleep(300)
         selectedCards = []
         if (foundCount === cardList.value.length) {
           // Game end
+          await sleep(300) // to let time to the inactive animation to end
           clearInterval(timeInterval)
+          isEnded.value = true
           return null
         }
       } else {
         cardList.value[selectedCards[0]].flipped = false
         cardList.value[selectedCards[1]].flipped = false
-        selectedCards = []
-        await sleep(300)
-      }
+        selectedCards = []      }
+
     }
     canClick = true
   }
