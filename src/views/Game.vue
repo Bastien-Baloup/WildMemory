@@ -1,8 +1,11 @@
 <template>
+  <!-- Game -->
   <div class="flex flex-col justify-around items-center h-full mb-1">
+    <!-- timer -->
     <p
       class="text-6xl ultra block w-screen text-center text-orange-50 py-8"
     >Time&nbsp;: {{ minutes }}:{{ seconds }}</p>
+    <!-- card grid -->
     <div
       ref="grid"
       class="w-[80vh] max-w-[90vw] aspect-square grid gap-2"
@@ -21,6 +24,7 @@
       </div>
     </div>
   </div>
+  <!-- game end modal -->
   <div
     v-if="isEnded"
     class="absolute top-0 left-0 h-full w-full bg-[#0005] flex items-center justify-center"
@@ -93,6 +97,7 @@ const gridSize = computed(() => {
   }
 })
 
+// img and text of each possible cards
 const cardsData = {
   0: { img: 'anteater.svg', text: { english: 'Anteater', french: 'Fourmilier', spanish: 'Oso hormiguero' } },
   1: { img: 'badger.svg', text: { english: 'Badger', french: 'Blaireau', spanish: 'Tejón' } },
@@ -180,33 +185,50 @@ const setupCardList = () => {
 // Promise based sleep function
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
+// handle the click on a card
 const handleCardClick = async (cardIndex) => {
+  // if the click isn't locked by a precedent one and if the card is active
   if (canClick && !cardList.value[cardIndex].inactive) {
+    // lock the click
     canClick = false
+    // add the card to the selected cards
     selectedCards.push(cardIndex)
+    // flip the card
     cardList.value[cardIndex].flipped = true
     if (selectedCards.length === 2) {
-      await sleep(700) // to let time to the flipped animation to end
+      // to let time to the flipped animation to end
+      await sleep(700)
       const card1 = cardList.value[selectedCards[0]]
       const card2 = cardList.value[selectedCards[1]]
+      // if the cards are a pair
       if (card1.img === card2.img) {
         foundCount += 2
+        // disable both cards
         cardList.value[selectedCards[0]].inactive = true
         cardList.value[selectedCards[1]].inactive = true
+        // reset selected cards array
         selectedCards = []
+        // if all cards are found
         if (foundCount === cardList.value.length) {
           // Game end
-          await sleep(300) // to let time to the inactive animation to end
+
+          // let time to the inactive animation to end
+          await sleep(300)
+          // stop the timer
           clearInterval(timeInterval)
+          // show the end modal
           isEnded.value = true
           return null
         }
       } else {
+        // flip back both cards
         cardList.value[selectedCards[0]].flipped = false
         cardList.value[selectedCards[1]].flipped = false
+        // reset selected cards array
         selectedCards = []
       }
     }
+    // unlock the click
     canClick = true
   }
 

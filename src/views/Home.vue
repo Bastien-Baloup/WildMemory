@@ -1,7 +1,10 @@
 <template>
+  <!-- Home -->
   <div class="flex flex-col justify-around h-full">
+    <!-- title -->
     <h1 class="text-8xl ultra block w-screen text-center text-orange-50 py-10">Wild Memory</h1>
     <div class="flex justify-evenly h-1/2">
+      <!-- difficulty card -->
       <div
         class="h-full aspect-[5/8] bg-orange-50 outline-4 outline-forest outline rounded-2xl shadow-lg flex flex-col items-center justify-evenly pacifico"
       >
@@ -49,12 +52,14 @@
           </label>
         </div>
       </div>
+      <!-- play card -->
       <router-link
         :to="{ name: 'Game', params: { language: language, difficulty: difficulty } }"
         class="h-full aspect-[5/8] bg-orange-50 text-forest hover:underline active:bg-forest active:text-orange-50 outline-4 outline-forest outline rounded-2xl shadow-lg flex flex-col items-center justify-evenly pacifico"
       >
         <h2 class="text-5xl ultra block w-full text-center p-5">Play</h2>
       </router-link>
+      <!-- language card -->
       <div
         class="h-full aspect-[5/8] bg-orange-50 outline-4 outline-forest outline rounded-2xl shadow-lg flex flex-col items-center justify-evenly pacifico"
       >
@@ -110,6 +115,7 @@
 <script setup>
 import { ref } from 'vue'
 
+// reactive state
 const difficulty = ref('easy')
 const language = ref('english')
 </script>

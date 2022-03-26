@@ -24,7 +24,6 @@ const props = defineProps({
 
 <style lang="postcss">
 .card {
-  /* @apply h-full aspect-[5/8]; */
   perspective: 60rem;
   pointer-events: all;
 }
