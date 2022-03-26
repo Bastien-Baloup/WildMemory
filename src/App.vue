@@ -1,10 +1,8 @@
 <template>
-  <Home />
+  <router-view />
 </template>
 
-<script setup>
-import Home from './vues/Home.vue'
-</script>
+<script setup></script>
 
 <style lang="postcss">
 /* google fonts */

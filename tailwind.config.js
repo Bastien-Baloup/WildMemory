@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         'orange': colors.orange,
         'forest': '#364e3a'
+      },
+      gridTemplateRows: {
+        '10': 'repeat(10, minmax(0, 1fr))',
       }
     }
   }
