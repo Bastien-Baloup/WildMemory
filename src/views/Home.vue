@@ -127,6 +127,4 @@ input[type="radio"]:checked + label {
 input[type="radio"]:checked + label span {
   @apply underline;
 }
-@media screen(lg) {
-}
 </style>
