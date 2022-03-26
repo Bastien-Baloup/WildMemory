@@ -24,8 +24,6 @@ On the HomePage you can choose between 3 difficulties that changes the number of
 
 As said in the introduction, you can choose on the homepage the languages of the cards between English, French or Spanish.
 
----
-
 ![HomePage](img/home.png)
 
 ### The Game
