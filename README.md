@@ -32,3 +32,7 @@ The game have all the expected functions of memory game :
 - When 2 cards are flipped, if there is a match, the 2 cards will be eliminated from the game.
 - If there isn't a match, the 2 cards will flip back.
 - When all the matches have been found, you will see a dialog box showing a Congratulations message with a counter displaying the time it took to finish the game
+
+## TODO
+
+Making it mobile friendly
