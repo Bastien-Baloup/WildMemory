@@ -2,7 +2,7 @@
 
 # Wild Memory
 
-Wild memory is a little memory game in 3 different languages.
+Wild memory is a little memory game in 3 different languages.  
 It can be used as a tool to learn the names in English, French or Spanish of 50 different animals.
 
 It can be found [here](https://memory.bbaloup.fr/) !
