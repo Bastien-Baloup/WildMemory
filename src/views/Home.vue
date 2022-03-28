@@ -19,7 +19,7 @@
             class="hidden"
           />
           <label for="easy" class="text-forest text-xl 2xl:text-3xl">
-            😎&nbsp;
+            😎
             <span>Easy</span>
           </label>
         </div>
@@ -33,7 +33,7 @@
             class="hidden"
           />
           <label for="medium" class="text-forest text-xl 2xl:text-3xl">
-            😄&nbsp;
+            😄
             <span>Medium</span>
           </label>
         </div>
@@ -47,7 +47,7 @@
             class="hidden"
           />
           <label for="hard" class="text-forest text-xl 2xl:text-3xl">
-            😈&nbsp;
+            😈
             <span>Hard</span>
           </label>
         </div>
@@ -75,7 +75,7 @@
             checked
           />
           <label for="english" class="text-forest text-xl 2xl:text-3xl">
-            🇺🇸&nbsp;
+            🇺🇸
             <span>English</span>
           </label>
         </div>
@@ -89,7 +89,7 @@
             class="hidden"
           />
           <label for="french" class="text-forest text-xl 2xl:text-3xl">
-            🇫🇷&nbsp;
+            🇫🇷
             <span>French</span>
           </label>
         </div>
@@ -103,7 +103,7 @@
             class="hidden"
           />
           <label for="spanish" class="text-forest text-xl 2xl:text-3xl">
-            🇪🇸&nbsp;
+            🇪🇸
             <span>Spanish</span>
           </label>
         </div>

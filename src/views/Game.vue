@@ -1,14 +1,14 @@
 <template>
   <!-- Game -->
-  <div class="flex flex-col justify-around items-center h-full mb-1">
+  <div class="flex flex-col justify-around items-center h-full">
     <!-- timer -->
     <p
-      class="text-6xl ultra block w-screen text-center text-orange-50 py-8"
+      class="text-4xl 2xl:text-6xl ultra block w-screen text-center text-orange-50 py-4 xl:py-8"
     >Time&nbsp;: {{ minutes }}:{{ seconds }}</p>
     <!-- card grid -->
     <div
       ref="grid"
-      class="w-[80vh] max-w-[90vw] aspect-square grid gap-2"
+      class="w-[80vh] max-w-[90vw] aspect-square grid gap-2 mb-3"
       :class="'grid-' + gridSize"
       :style="'font-size: ' + cardFontSize + 'px;'"
     >
