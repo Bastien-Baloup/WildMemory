@@ -49,7 +49,7 @@
 body {
   @apply h-screen;
   background: rgba(0, 0, 0, 0) url(assets/forest-day.svg);
-  background-blend-mode: darken;
+  background-blend-mode: multiply;
   background-size: cover;
   animation: 1s ease-in 0s forwards darken;
 }
