@@ -24,6 +24,11 @@
       </div>
     </div>
   </div>
+  <!-- back button -->
+  <router-link
+    :to="{ name: 'Home' }"
+    class="absolute top-1 left-1 text-2xl text-orange-50 ultra hover:underline active:outline-dashed active:outline-orange-50 active:outline-1"
+  >&lt;&nbsp;Back</router-link>
   <!-- game end modal -->
   <div
     v-if="isEnded"

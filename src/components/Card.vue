@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <button class="card">
     <div class="card__inner" :inactive="props.inactive" :flipped="props.flipped">
       <div class="card__face card__face--front">
         <img src="/forest.svg" alt class="w-1/2 svg-orange-50" draggable="false" />
@@ -9,7 +9,7 @@
         <h2 class="pacifico block w-[90%] text-center">{{ props.text }}</h2>
       </div>
     </div>
-  </div>
+  </button>
 </template>
 
 <script setup>

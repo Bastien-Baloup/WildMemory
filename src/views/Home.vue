@@ -16,9 +16,9 @@
             type="radio"
             name="difficulty"
             value="easy"
-            class="hidden"
+            tabindex="1"
           />
-          <label for="easy" class="text-forest text-xl 2xl:text-3xl">
+          <label for="easy" class="text-forest text-xl 2xl:text-3xl rounded-xl p-1">
             😎
             <span>Easy</span>
           </label>
@@ -30,9 +30,9 @@
             type="radio"
             name="difficulty"
             value="medium"
-            class="hidden"
+            tabindex="1"
           />
-          <label for="medium" class="text-forest text-xl 2xl:text-3xl">
+          <label for="medium" class="text-forest text-xl 2xl:text-3xl rounded-xl p-1">
             😄
             <span>Medium</span>
           </label>
@@ -44,9 +44,9 @@
             type="radio"
             name="difficulty"
             value="hard"
-            class="hidden"
+            tabindex="1"
           />
-          <label for="hard" class="text-forest text-xl 2xl:text-3xl">
+          <label for="hard" class="text-forest text-xl 2xl:text-3xl rounded-xl p-1">
             😈
             <span>Hard</span>
           </label>
@@ -55,7 +55,8 @@
       <!-- play card -->
       <router-link
         :to="{ name: 'Game', params: { language: language, difficulty: difficulty } }"
-        class="h-full aspect-[5/8] bg-orange-50 text-forest hover:underline active:bg-forest active:text-orange-50 outline-4 outline-forest outline rounded-2xl shadow-lg flex flex-col items-center justify-evenly pacifico"
+        class="h-full aspect-[5/8] bg-orange-50 text-forest hover:underline active:bg-forest active:text-orange-50 focus:underline focus:bg-forest focus:text-orange-50 outline-4 outline-forest outline rounded-2xl shadow-lg flex flex-col items-center justify-evenly pacifico"
+        tabindex="2"
       >
         <h2 class="text-5xl ultra block w-full text-center p-5">Play</h2>
       </router-link>
@@ -71,10 +72,9 @@
             type="radio"
             name="language"
             value="english"
-            class="hidden"
-            checked
+            tabindex="1"
           />
-          <label for="english" class="text-forest text-xl 2xl:text-3xl">
+          <label for="english" class="text-forest text-xl 2xl:text-3xl rounded-xl p-1">
             🇺🇸
             <span>English</span>
           </label>
@@ -86,9 +86,9 @@
             type="radio"
             name="language"
             value="french"
-            class="hidden"
+            tabindex="1"
           />
-          <label for="french" class="text-forest text-xl 2xl:text-3xl">
+          <label for="french" class="text-forest text-xl 2xl:text-3xl rounded-xl p-1">
             🇫🇷
             <span>French</span>
           </label>
@@ -100,9 +100,9 @@
             type="radio"
             name="language"
             value="spanish"
-            class="hidden"
+            tabindex="1"
           />
-          <label for="spanish" class="text-forest text-xl 2xl:text-3xl">
+          <label for="spanish" class="text-forest text-xl 2xl:text-3xl rounded-xl p-1">
             🇪🇸
             <span>Spanish</span>
           </label>
@@ -121,8 +121,20 @@ const language = ref('english')
 </script>
 
 <style lang="postcss">
+input[type="radio"] {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 input[type="radio"]:checked + label {
   @apply text-2xl 2xl:text-4xl font-bold;
+}
+input[type="radio"]:focus + label {
+  @apply outline outline-forest;
 }
 
 input[type="radio"]:checked + label span {
