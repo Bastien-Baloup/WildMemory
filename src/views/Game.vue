@@ -193,9 +193,10 @@ const sleep = ms => new Promise(r => setTimeout(r, ms))
 // handle the click on a card
 const handleCardClick = async (cardIndex) => {
   // if the click isn't locked by a precedent one and if the card is active
-  if (canClick && !cardList.value[cardIndex].inactive) {
+  if (canClick && !cardList.value[cardIndex].inactive && !cardList.value[cardIndex].flipped) {
     // lock the click
     canClick = false
+
     // add the card to the selected cards
     selectedCards.push(cardIndex)
     // flip the card
